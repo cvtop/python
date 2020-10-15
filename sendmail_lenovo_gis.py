@@ -20,8 +20,8 @@ def _format_addr(s):
         addr.encode('utf-8') if isinstance(addr, unicode) else addr))
 
 def _send_email(to_addr,title,context,types):
-	from_addr = 'wintel_support@lenovo.com'
-	smtp_server = 'smtpinternal.lenovo.com'
+	from_addr = 'wintel_support@hank85.com'
+	smtp_server = 'smtpinternal.hank85.com'
 
 	msg = MIMEText(context, types, 'utf-8')
 	msg['From'] = _format_addr(from_addr)
@@ -302,7 +302,7 @@ def main(sheetName,file1,file2):
 			if itcode==d[2]:
 				_h+=_makeTable(d[0],d[1],d[2],d[3])
 		htmlText=_makeHtml(_h)		
-		_send_email(str(itcode)+'@lenovo.com','请确认Windows&Linux系统打补丁及重启的时间 | Need your help to confirm windows&linux server 2016Q3 security patch window',htmlText,'html')
+		_send_email(str(itcode)+'@hank85.com','请确认Windows&Linux系统打补丁及重启的时间 | Need your help to confirm windows&linux server 2016Q3 security patch window',htmlText,'html')
 
 if __name__ == '__main__':
 	main('Sheet1','Test.xlsx','itcode.xlsx')
